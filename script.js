@@ -128,14 +128,8 @@ function setComputerScore(){
 
 
 function getComputerChoice(){
-    if(computerChoice==null)return choices[Math.floor(Math.random()*3)]
-    else {
-        let randomChoice=choices[Math.floor(Math.random()*3)];
-        while(computerChoice===randomChoice){
-            randomChoice=choices[Math.floor(Math.random()*3)];
-        }
-        return randomChoice;
-    }
+    return choices[Math.floor(Math.random()*3)]
+   
 }
 
 

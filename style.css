@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.players-section{
+    
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+#text{
+    display: inline;
+}
+span{
+    font-size: 24px;
+}
+.cards{
+    display: flex;
+    gap: 20px;
+}
+.cards div {
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    width: 250px;
+    height: 350px;
+}
+
+.cards .choice{
+    margin-left: 150px;
+}
+img{
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+}
+
+.result-section{
+
+    padding: 85px 0 0 0;
+    gap: 85px;
+    margin: 0 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.result-section div{
+    
+    width: 250px;
+    height: 350px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+
+}
+/* .result-section button{
+    color: white;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px ;
+    font-weight: 600;
+    height: 48px;
+    width: 200px;
+    margin-top: 20px;
+    position: fixed;
+    right: 100px;
+    top:440px;
+} */
+/* .result-section button:hover{
+    box-shadow:0 0 5px white ;
+} */
+.user-section .rock:hover{
+    box-shadow: 0 0 20px 5px #ED87D1;
+}
+.user-section .paper:hover{
+    box-shadow: 0 0 20px 5px #60E1F6;
+}
+.user-section .scissors:hover{
+    box-shadow: 0 0 20px 5px #DCE87A;
+}
+
+#user-choice ,
+#computer-choice{
+    display: none;
+}
+ 

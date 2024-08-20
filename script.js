@@ -2,16 +2,17 @@ const choices =['rock','paper','scissors']
 
 let userChoice=null;
 let computerChoice=null;
-let winner;
-let gameOver=false;
-let newRound=true
-let userScore=5;
-let computerScore=5;
+let winner=null;
+let userScore=3;
+let computerScore=3;
 
 
 
-//try again
-// const tryAgain =document.getElementById('try-again')
+//start game button
+const startGame = document.querySelector('.roles button');
+//play again button
+const playAgain = document.querySelector('.winner button');
+
 
 //Score Renderers
 const userScoreRenderer =document.getElementById('user-score')
@@ -24,52 +25,65 @@ const computerScoreRenderer =document.getElementById('computer-score')
 const computerChoiceRenderer =document.getElementById('computer-choice')
 const userChoiceRenderer =document.getElementById('user-choice')
 
-//User oves
+//User Moves
 const userRook=document.querySelector('.user-section .rock');
 const userPaper=document.querySelector('.user-section .paper');
 const userScissors=document.querySelector('.user-section .scissors');
 
 
-// tryAgain.addEventListener('click',()=>{
-//     newRound =true;
-//     computerChoiceRenderer.style.display="none";
-//     userChoiceRenderer.style.display="none";
 
-// })
 
 
 
 //Event listeners
+startGame.addEventListener('click',()=>{
+    //remove roles and display game
+    document.querySelector('.roles').style.display="none";
+    document.querySelector('.container').style.display="flex";
+})
+
+playAgain.addEventListener('click',()=>{
+    reset();
+    document.querySelector('.winner').style.display="none";
+    document.querySelector('.container').style.display="flex";
+});
+
+
+
+
 userRook.addEventListener('click',()=>{
-    // if(!newRound)return 
+     
     userChoice='rock'
     computerChoice=getComputerChoice();
     winner=getWinner();
     renderChoices();
     modifyScore();
-    // newRound=false;
+    checkGameOver();
+    
 })
 
 userPaper.addEventListener('click',()=>{
-    // if(!newRound)return 
+  
     userChoice='paper'
     computerChoice=getComputerChoice();
     winner=getWinner();
     renderChoices();
     modifyScore();
-    // newRound=false;
+    checkGameOver();
+    
 })
 userScissors.addEventListener('click',()=>{
-    // if(!newRound)return 
+   
     userChoice='scissors'
     computerChoice=getComputerChoice();
     winner=getWinner();
     renderChoices();
     modifyScore();
-    // newRound=false;
+    checkGameOver();
+    
 })
 
-
+//Game logic
 
 function modifyScore(){
     if(winner==='user'){
@@ -122,7 +136,16 @@ function setComputerScore(){
     computerScoreRenderer.textContent=score;
 }
 
-
+function reset(){
+    userChoice=null;
+    computerChoice=null;
+    winner=null;
+    userScore=3;
+    computerScore=3;
+    setScore();
+    userChoiceRenderer.style.display='none'
+    computerChoiceRenderer.style.display='none'
+}
 
 
 
@@ -162,4 +185,14 @@ function getWinner(){
         else return 'tie'
     }
     
+}
+function checkGameOver(){
+    if(userScore===0 || computerScore===0){
+        gameOver = true;
+        //remove game and display Winner
+        document.querySelector('.container').style.display='none'
+        const winnerMessage=document.querySelector('.winner h2');
+        winnerMessage.textContent = "The Winner is : the " +winner;
+        document.querySelector('.winner').style.display='flex'; 
+    }
 }
